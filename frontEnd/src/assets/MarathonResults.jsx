@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import MarathonResultsList from "./MarathonResultsList"; 
-import CreateForm from "./CreateForm"; 
-import UpdateForm from "./UpdateForm"; 
-import DeleteButton from "./DeleteButton"; 
+import DisplayResults from "./DisplayResults";
+import CreateForm from "./CreateForm";
+import UpdateResult from "./UpdateResult";
+import DeleteButton from "./DeleteButton";
 
 const MarathonResults = () => {
+  const [results, setResults] = useState([]);
+  const [selectedResult, setSelectedResult] = useState(null);
+
   const onAddResult = (newResult) => {
     setResults([...results, newResult]);
   };
 
-  const [results, setResults] = useState([]);
+  const onResultDelete = () => {};
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +30,24 @@ const MarathonResults = () => {
   return (
     <div>
       <h1>Marathon Results</h1>
-
-      <CreateForm onAddResult={onAddResult} /> {/* Render the CreateForm component */}
-      <MarathonResultsList results={results} /> {/* Render the MarathonResultsList component */}
-      <UpdateForm /> {/* Render the UpdateForm component */}
-      <DeleteButton onDelete={onResultDelete} runnerID={results.runnerID} /> {/* Render the DeleteButton component */}
+      <CreateForm onAddResult={onAddResult} />
+      {/* Render the CreateForm component */}
+      <DisplayResults results={results} />
+      {/* Render the MarathonResultsList component */}
+      <UpdateResult
+        result={selectedResult}
+        onUpdateResult={(updatedData) => {
+          
+          setResults([...results]); // Update the results
+          setSelectedResult(null); // Clear the selected result
+        }}
+      />
+      {/* Render the UpdateForm component */}
+      <DeleteButton
+        onDelete={onResultDelete}
+        runnerID={selectedResult ? selectedResult.runnerID : null}
+      />
+      {/* Render the DeleteButton component */}
     </div>
   );
 };
