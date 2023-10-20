@@ -1,5 +1,6 @@
 import express from "express";
 import * as ResultsController from "../controllers/results.controller.js";
+import crypto from "crypto";
 
 
 
@@ -35,10 +36,15 @@ newServer.get('/:id?', async (req, res) => {
     }
   });
   
-
+function generateID(){
+return crypto.randomUUID()
+}
   newServer.post('/', async (req, res) => {
     try {
-      const resultId = await ResultsController.insertMarathonResult(req.body);
+      let newMarathonResult = req.body;
+      newMarathonResult.runnerId = generateID();
+      console.log(newMarathonResult);
+      const resultId = await ResultsController.insertMarathonResult(newMarathonResult);
       res.status(201).json({ id: resultId });
     } catch (error) {
       console.error(error);

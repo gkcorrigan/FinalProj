@@ -19,6 +19,7 @@ const DisplayResults = ({ results }) => {
                 <tbody>
                     {results.map(result => (
                         <tr key={result.runnerID}>
+                            <td>{result.runnerID}</td>
                             <td>{result.firstName}</td>
                             <td>{result.lastName}</td>
                             <td>{result.city}</td>

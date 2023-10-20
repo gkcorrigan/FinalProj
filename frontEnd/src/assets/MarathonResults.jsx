@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import DisplayResults from "./DisplayResults.jsx";
-import CreateForm from "./CreateNewResult.jsx";
-import UpdateResult from "./UpdateResult.jsx";
-import DeleteButton from "./DeleteResult.jsx";
+import DisplayResults from "../components/DisplayResults";
+import CreateForm from "../components/CreateNewResult";
+import UpdateResult from "../components/UpdateResult";
+import DeleteButton from "../components/DeleteResult";
+import '../App.css'
 
 const MarathonResults = () => {
   const [results, setResults] = useState([]);
@@ -10,6 +11,7 @@ const MarathonResults = () => {
 
   const onAddResult = (newResult) => {
     setResults([...results, newResult]);
+    console.log("New result added:", newResult);
   };
 
   const onResultDelete = async(runnerID) => {
@@ -44,11 +46,16 @@ const MarathonResults = () => {
 
   return (
     <div>
-      <h1>Marathon Results</h1>
-      <CreateForm onAddResult={onAddResult} />
+      <div className="marathon-header">
+      <h1>2023 County Marathon Results</h1>
+      </div>
+
+      <div className="marathon-results">
+      
       {/* Render the CreateForm component */}
       <DisplayResults results={results} />
       {/* Render the MarathonResultsList component */}
+      </div>
       <UpdateResult
         result={selectedResult}
         onUpdateResult={(updatedData) => {
@@ -57,12 +64,15 @@ const MarathonResults = () => {
           setSelectedResult(null); // Clear the selected result
         }}
       />
+          <CreateForm onAddResult={onAddResult} />
       {/* Render the UpdateForm component */}
+      <h2>Delete Race Result</h2>
       <DeleteButton
         onDelete={onResultDelete}
         runnerID={selectedResult ? selectedResult.runnerID : null}
       />
       {/* Render the DeleteButton component */}
+      
     </div>
   );
 };

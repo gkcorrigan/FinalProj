@@ -28,7 +28,7 @@ const handleSubmit = async (e) => {
             body: JSON.stringify(formData),
         });
     if(response.status ===201){
-        onAddResult(formData);
+        // onAddResult(formData);
         setFormData({
             firstName: "",
             lastName: "",
@@ -44,9 +44,10 @@ const handleSubmit = async (e) => {
 };
 
 return (
-    <div>
-        <h2>Create a New Result</h2>
+    <div className="form-container">
+        <h2>Missing Result? Add It Here!</h2>
         <form onSubmit={handleSubmit}>
+            <div className="input-field"> 
             <input 
             type="text"
             name="firstName"
@@ -54,7 +55,9 @@ return (
             onChange={handleChange}
             placeholder="First Name"
             />
+            </div>
 
+            <div className="input-field"> 
             <input 
             type="text"
             name="lastName"
@@ -62,7 +65,9 @@ return (
             onChange={handleChange}
             placeholder="Last Name"
             />
+            </div>
 
+            <div className="input-field"> 
             <input 
             type="text"
             name="city"
@@ -70,7 +75,9 @@ return (
             onChange={handleChange}
             placeholder="City"
             />
+            </div>
 
+            <div className="input-field"> 
             <input 
             type="text"
             name="state"
@@ -78,7 +85,8 @@ return (
             onChange={handleChange}
             placeholder="State"
             />
-
+            </div>
+            <div className="input-field"> 
             <input 
             type="text"
             name="gender"
@@ -86,7 +94,9 @@ return (
             onChange={handleChange}
             placeholder="Gender"
             />
+            </div>
 
+            <div className="input-field"> 
             <input 
             type="text"
             name="finishTime"
@@ -94,6 +104,8 @@ return (
             onChange={handleChange}
             placeholder="Finish Time"
             />
+            </div>
+            <button type="submit" className="submit-button">Submit</button>
         </form>
     </div>
 );

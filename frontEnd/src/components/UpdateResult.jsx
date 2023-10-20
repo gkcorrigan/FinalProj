@@ -2,13 +2,6 @@ import React, {useState} from 'react';
 
 const UpdateResult = ({ onUpdateResult}) => {
     const [formData, setFormData] = useState({
-        runnerID: '',
-        firstName:'',
-        lastName:'',
-        city:'',
-        state:'',
-        gender:'',
-        finishTime:'',
     });
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -23,7 +16,7 @@ const UpdateResult = ({ onUpdateResult}) => {
             },
             body: JSON.stringify(updatedData),
             }    
-            });
+);
 
             if (response.ok) {
                 onUpdateResult(updatedData);

@@ -9,13 +9,26 @@ import query from "../config/db.query.js"
   };
   
   // insert a new marathon result
+//are there any fields that can be empty? no
   export const insertMarathonResult = async (data) => {
+    for(const key in data){
+      if(!data[key]){
+        console.log("Missing Field")
+        throw Error(`Invalid Object: Missing Fields`)
+      }
+    }
     return query (`INSERT INTO countymarathon SET ?`, [data]);
   };
   
   
 //make a change to a result in the marathon data
   export const updateMarathonResult = async (id, data) => {
+    for(const key in data){
+      if(!data[key]){
+        console.log("Missing Field")
+        throw Error(`Invalid Object: Missing Fields`)
+      }
+    }
     return query("UPDATE countymarathon SET ? WHERE runnerID =?", [data,id])
   }
 //delete a peice of data in the marathon result 

@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
-const DeleteButton = ({onDelete, runnerID}) => {
+const DeleteButton = ({onDelete}) => {
+    const [runnerID, setRunnerID] = useState("");
+
     const handleDelete = async () => {
 try {
     const response = await fetch(`http://localhost:5543/api/results/${runnerID}`,{
@@ -15,8 +17,16 @@ try {
     console.error("Error deleting marathon result", error);
 }
     };
-    return (
+
+    return (<div>
+        <input type="text"
+        placeholder="Enter Runner ID"
+        value={runnerID}
+        onChange={(e) => setRunnerID(e.target.value)}
+        />
+    
         <button onClick={handleDelete}>Delete Result</button>
+        </div>
     );
 };
 
