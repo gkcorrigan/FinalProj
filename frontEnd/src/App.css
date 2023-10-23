@@ -45,37 +45,86 @@
 }
 
 .marathon-header {
-  background-color: #0073e6;
-  color: #fff;
+  background-color: #985738; 
+  color: #102d17; 
+  border: 3px solid #660808; 
   padding: 10px;
   text-align: center;
+  margin-left: 20px;
+  
+}
+.ListTitle{
+ font-size: 1.5em;
+ text-align: center;
+ display: block;
+ margin: 0;
+ padding: 10px, 0;
+ padding-bottom: 20px;
+ 
 }
 
 .marathon-results {
-  border: 1px solid #ccc;
+  border: 3px solid #660808;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
+  margin-right: 10%;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  
 }
 
+.marathon-results th, 
+.marathon-results td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid#660808;
+}
 
+.marathon-results th:first-child,
+.marathon-results td:first-child
+{
+  width: 15%;
+}
+
+.marathon-results th:last-child,
+.marathon-results td:last-child
+{
+  width: 15%;
+}
+
+.center-align{
+  text-align: center;
+}
 .form-container {
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
+  background-color: #6cb578;
+  border: 3px solid #660808;
   padding: 1rem;
-  max-width: 400px;
-  color: rgb(230, 146, 36);
+  max-width: 350px;
+  color: rgb(129, 3, 26);
 }
 
 .input-field{
   margin-bottom: 1rem;
+  background-color: #242424;
+  border: 2px solid #660808;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+
 }
 
 .submit-button {
-  background-color: #0073e6;
+  background-color: #8f9341;
   color: #fff;
   border: none;
   padding: .5 rem, 1rem;
   cursor: pointer;
 
+}
+body {
+  background-color:#f5f5dc;
+  text-align: center;
+  margin: 0;
 }

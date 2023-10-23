@@ -3,8 +3,8 @@ import React from 'react';
 const DisplayResults = ({ results }) => {
     return (
         <div>
-            <h2>Marathon Results List</h2>
-            <table>
+            <h2 className='ListTitle'>Marathon Results List</h2>
+            <table >
                 <thead>
                     <tr>
                         <th>Runner ID</th>
@@ -19,13 +19,13 @@ const DisplayResults = ({ results }) => {
                 <tbody>
                     {results.map(result => (
                         <tr key={result.runnerID}>
-                            <td>{result.runnerID}</td>
-                            <td>{result.firstName}</td>
-                            <td>{result.lastName}</td>
-                            <td>{result.city}</td>
-                            <td>{result.state}</td>
-                            <td>{result.gender}</td>
-                            <td>{result.finishTime}</td>
+                            <td className='center-align'>{result.runnerID}</td>
+                            <td className='center-align'>{result.firstName}</td>
+                            <td className='center-align'>{result.lastName}</td>
+                            <td className='center-align'>{result.city}</td>
+                            <td className='center-align'>{result.state}</td>
+                            <td className='center-align'>{result.gender}</td>
+                            <td className='center-align'>{result.finishTime}</td>
                         </tr>
                     ))}
                 </tbody>
